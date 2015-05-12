@@ -7,4 +7,4 @@ Features:
 - Injected realms can be filtered based upon the facets
 
 Sample:
-See RealmsResolverTest
+https://github.com/rvs-fluid-it/guice-multi-shiro-realms/blob/master/src/test/java/be/fluid_it/guice/extensions/multibindings/shiro/realms/RealmsResolverTest.java
