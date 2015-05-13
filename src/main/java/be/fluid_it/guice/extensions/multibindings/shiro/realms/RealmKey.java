@@ -21,7 +21,7 @@ public class RealmKey {
         this.facets = new ImmutableMap.Builder<String, String>().putAll(keyToCut.facets).put(facet.name(), facet.value()).build();
     }
 
-    RealmKey cut(Facet facet) {
+    public RealmKey cut(Facet facet) {
         return new RealmKey(this,facet);
     }
 
