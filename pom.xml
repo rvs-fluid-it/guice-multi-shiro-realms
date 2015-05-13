@@ -48,7 +48,6 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-
   <dependencies>
     <dependency>
       <groupId>com.google.inject</groupId>

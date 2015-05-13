@@ -41,7 +41,7 @@ public class RealmsResolverTest {
             @Override
             public void configure(Binder binder) {
                 MultiRealmBinder.newMultiRealmBinder(binder)
-                        .addBinding(new RealmKey(AnotherDummyShiroRealm.class))
+                        .addBinding(new RealmKey(ADummyShiroRealm.class))
                         .to(ADummyShiroRealm.class);
             }
         };
