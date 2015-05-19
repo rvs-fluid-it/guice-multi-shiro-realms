@@ -29,12 +29,20 @@ public class RealmKey {
        return facets.keySet().contains(name);
     }
 
+    public String[] isCutBy() {
+        return facets.values().toArray(new String[facets.values().size()]);
+    }
+
     public boolean isCutBy(Class<? extends SimpleFacet> facetClazz) {
         return isCutBy(facetClazz.getSimpleName());
     }
 
     public boolean isCutBy(Facet facet) {
         return isCutBy(facet.name()) && facets.get(facet.name()).equals(facet.value());
+    }
+
+    public String name() {
+        return this.name;
     }
 
     public boolean match(Facet facet) {

@@ -9,6 +9,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.realm.Realm;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Collection;
@@ -43,6 +44,7 @@ public class RealmsResolverTest {
                 MultiRealmBinder.newMultiRealmBinder(binder)
                         .addBinding(new RealmKey(ADummyShiroRealm.class))
                         .to(ADummyShiroRealm.class);
+                binder.bind(Deployment.Option.class).toInstance(Deployment.Option.WAR);
             }
         };
         Module anotherRealmModule = new Module() {
@@ -80,6 +82,12 @@ public class RealmsResolverTest {
         Assert.assertEquals(2, fatJarRealms.size());
         for (Realm realm : fatJarRealms) {
             Assert.assertFalse(realm instanceof YetAnotherDummyShiroRealm);
+        }
+        Collection<Realm> activeRealms = realmsResolver.activeRealms();
+        Assert.assertNotNull(activeRealms);
+        Assert.assertEquals(2, activeRealms.size());
+        for (Realm realm : activeRealms) {
+            Assert.assertFalse(realm instanceof AnotherDummyShiroRealm);
         }
     }
 

@@ -5,6 +5,8 @@ import com.google.inject.Binder;
 import com.google.inject.binder.LinkedBindingBuilder;
 import com.google.inject.multibindings.MapBinder;
 import org.apache.shiro.realm.Realm;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MultiRealmBinder {
     private final MapBinder<RealmKey, Realm> mapBinder;
